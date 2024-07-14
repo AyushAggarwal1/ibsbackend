@@ -1,3 +1,7 @@
 /ibsapi/__pycache__
 /ibsapi/migrations/__pycache__
 /ibsbackend/__pycache__
+
+ibsbackend/__pycache__/
+ibsapi/__pycache__/
+ibsapi/migrations/
