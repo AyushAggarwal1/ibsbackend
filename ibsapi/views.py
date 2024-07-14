@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from rest_framework import generics
 from django.views.decorators.http import require_GET
 from django.views import generic
+from django.shortcuts import get_object_or_404, render
 
 from .models import homePageForm, blogPost
 from .serializers import homePageFormSerializer, blogPageFormSerializer
@@ -23,6 +24,11 @@ class blogPostlist(generic.ListView):
 class postdetail(generic.DetailView):
     model = blogPost
     template_name = "blogTemplate.html"
+
+# blog previewer
+def previewBlog(request, blog_id):
+    blog = get_object_or_404(blogPost, id=blog_id)
+    return render(request, 'blog_preview.html', {'blog': blog})
 
 # Create your views here.
 def main(request):
