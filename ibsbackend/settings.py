@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ibsapi.apps.IbsapiConfig',
-    'rest_framework'
+    'rest_framework',
+    'tinymce'
 ]
 
 MIDDLEWARE = [
