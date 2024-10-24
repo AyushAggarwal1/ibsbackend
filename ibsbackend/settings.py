@@ -39,10 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ibsapi.apps.IbsapiConfig',
-    'rest_framework'
+    'rest_framework',
+    'tinymce'
 ]
 
 MIDDLEWARE = [
+    'django.middleware.csrf.CsrfViewMiddleware',  # Ensure this is include
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -108,9 +110,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
+
+USE_L10N = True
 
 USE_TZ = True
 
@@ -128,3 +132,19 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CSRF_COOKIE_NAME = 'csrftoken'  # Default CSRF cookie name
+CSRF_COOKIE_PATH = '/'          # Default path for CSRF cookie
+CSRF_COOKIE_HTTPONLY = False    # Adjust as needed (default is True for security)
+CSRF_COOKIE_SECURE = False      # Adjust as needed (default is True for security)
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
